@@ -2,12 +2,13 @@
 var FileViewModel = function (file) {
   var self = this;
 
-  self.fileName = file.name;
-  self.fileSize = file.size;
+  self.name     = file.name;
+  self.size     = file.size;
+  self.status   = ko.observable(null);
   self.progress = ko.observable(0);
 
   self.showProgress = function () {
-    return self.progress() + '% of ' + Math.floor(self.fileSize / 1024) + 'kb';
+    return self.progress() + '% of ' + Math.floor(self.size / 1024) + 'kb';
   };
 };
 
@@ -24,10 +25,11 @@ ko.bindingHandlers.uploader = {
             listOfFiles.push(fileViewModel);
             //-----------------------------------------------
             filepicker.store(dt.files[i], function (fpfile) {
-              console.log(fpfile);
+              fileViewModel.status('success');
             }, function (fperror) {
-              console.log(fperror);
+              fileViewModel.status('error');
             }, function (progress) {
+              fileViewModel.status('uploading');
               fileViewModel.progress(progress);
             });
           }

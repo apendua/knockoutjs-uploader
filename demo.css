@@ -1,10 +1,26 @@
 .droparea {
-  padding: 4px;
+  padding: 30px;
   border: 2px dashed black;
-  border-radius: 8px;
+  border-radius: 12px;
   text-align: center;
+  margin: 16px;
+  margin-top: 8px;
 }
 
 .droparea.dragover {
   background-color : #eee;
+}
+
+.header {
+  margin-bottom : 30px;
+  border-bottom : 1px solid #e5e5e5;
+}
+
+.footer {
+  margin-top : 30px;
+  border-top : 1px solid #e5e5e5;
+}
+
+.header h3 {
+  padding-bottom : 20px;
 }
