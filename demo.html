@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset=utf-8?
+	<link rel="stylesheet" href=""/>
+	<script src="scripts/jquery-1.10.2.min.js"></script>
+	<script src="scripts/knockout-3.0.0rc.js"></script>
+	<script src="scripts/filepicker.js"></script>
+	<script src="scripts/appViewModel.js"></script>
+	<script src="scripts/uploader.js"></script>
+
+	<script>
+		$(document).ready(function () {
+			ko.applyBindings(new DemoAppViewModel());
+		});
+	</script>
+
+</head>
+	<title>KnockoutJS File Uploader Demo</title>
+<body>
+
+	<h1 data-bind="text: message"></h1>
+
+</body>
+</html>
