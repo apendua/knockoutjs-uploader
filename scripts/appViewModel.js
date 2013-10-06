@@ -1,3 +1,3 @@
 function DemoAppViewModel () {
-	this.message = "Hello! It's working...";
+  this.message = "Hello! It's working...";
 }
