@@ -22,7 +22,7 @@
   </script>
 
 </head>
-  <title>KnockoutJS File Uploader Demo</title>
+  <title>KnockoutJS File Uploader</title>
 <body>
   <div class="container">
     <div class="header">
@@ -36,18 +36,20 @@
 
     <div data-bind="uploader: true">
       <div class="panel panel-default">
-        <div class="panel-heading">Uploading Files Demo App</div>
+        <!-- header -->
+        <div class="panel-heading">
+          <h4 data-bind="text: $root.header"></h3>
+        </div>
+        <!-- dropzone -->
         <div class="droparea" data-bind="droparea: { drop: uploadFiles }">
           Drag files here to start uploading.<br/>
           You can drag multiple files at the same time.
         </div>
+        <!-- files queue -->
         <table class="table table-hover" data-bind="if: listOfFiles().length > 0">
           <thead>
             <tr>
-              <th>Status</th>
-              <th>File name</th>
-              <th>File size</th>
-              <th>Progress</th>
+              <th>Status</th><th>File name</th><th>File size</th><th>Progress</th>
             </tr>
           </thead>
           <tbody data-bind="foreach: listOfFiles">
@@ -59,18 +61,13 @@
                 }"></span>
               </td>
               <td>
-                <!-- ko if: link() -->
-                <a data-bind="attr: { href: link() }, text: name"></a>
-                <!-- /ko -->
-                <!-- ko ifnot: link() -->
-                <span data-bind="text: name"></span>
-                <!-- /ko -->
+                <a data-bind="attr: { href: link() }, text: name, visible: link()"></a>
+                <span data-bind="text: name, visible: !link()"></span>
               </td>
               <td data-bind="text: size"></td>
               <td>
                 <div class="progress progress-striped" data-bind="css: {
-                  'active' : status() == 'uploading'
-                }">
+                  'active' : status() == 'uploading' }">
                   <div class="progress-bar"
                     data-bind=
                     "style: {
@@ -78,7 +75,8 @@
                     }, css: {
                       'progress-bar-success' : status() == 'success',
                       'progress-bar-danger'  : status() == 'error',
-                    }"></div>
+                    }">
+                  </div>
                 </div> <!-- progress -->
               </td>
             </tr>

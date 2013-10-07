@@ -1,4 +1,6 @@
 
+// representation of file in the upload queue
+
 var FileViewModel = function (file) {
   var self = this;
 
@@ -13,11 +15,13 @@ var FileViewModel = function (file) {
   };
 };
 
+// upload helper
+
 ko.bindingHandlers.uploader = {
   init: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
     var listOfFiles = ko.observableArray([]);
 
-    // define file upload handler
+    // upload handler
     var uploadFiles = function (event) {
       var dt = event.originalEvent.dataTransfer;
       if (dt !== undefined && dt.files !== undefined) {

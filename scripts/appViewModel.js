@@ -1,3 +1,5 @@
+
 function DemoAppViewModel () {
-  this.message = "Hello! It's working...";
+  this.title  = "KnockoutJS File Uploader";
+  this.header = "Uploading Files Demo App";
 }
