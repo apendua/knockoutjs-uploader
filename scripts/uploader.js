@@ -5,6 +5,7 @@ var FileViewModel = function (file) {
   self.name     = file.name;
   self.size     = file.size;
   self.status   = ko.observable(null);
+  self.link     = ko.observable(null);
   self.progress = ko.observable(0);
 
   self.showProgress = function () {
@@ -27,6 +28,7 @@ ko.bindingHandlers.uploader = {
             //-----------------------------------------------
             filepicker.store(dt.files[i], function (fpfile) {
               fileViewModel.status('success');
+              fileViewModel.link(fpfile.url);
             }, function (fperror) {
               fileViewModel.status('error');
             }, function (progress) {

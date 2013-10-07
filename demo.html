@@ -39,7 +39,7 @@
         <div class="droparea" data-bind="droparea: { drop: uploadFiles }">
           Drag files here to start uploading
         </div>
-        <table class="table table-striped">
+        <table class="table table-hover">
           <thead>
             <tr>
               <th>Status</th>
@@ -56,7 +56,14 @@
                   'label-danger'  : status() == 'error',
                 }"></span>
               </td>
-              <td data-bind="text: name"></td>
+              <td>
+                <!-- ko if: link() -->
+                <a data-bind="attr: { href: link() }, text: name"></a>
+                <!-- /ko -->
+                <!-- ko ifnot: link() -->
+                <span data-bind="text: name"></span>
+                <!-- /ko -->
+              </td>
               <td data-bind="text: size"></td>
               <td>
                 <div class="progress progress-striped" data-bind="css: {
