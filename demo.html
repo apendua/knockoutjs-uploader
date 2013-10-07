@@ -53,7 +53,12 @@
               <td data-bind="text: name"></td>
               <td data-bind="text: size"></td>
               <td data-bind="text: progress()"></td>
-              <td data-bind="text: status()"></td>
+              <td>
+                <span class="label label-default" data-bind="text: status(), css: {
+                  'label-success': status() == 'success',
+                  'label-danger' : status() == 'error',
+                }"></span>
+              </td>
             </tr>
           </tbody>
         </table>
