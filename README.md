@@ -17,7 +17,7 @@ corresponding callback in the following way
 <div data-bind="droparea: { drop: dropCallback }"></div>
 ```
 The second one, named `uploader`
-(see see [scripts/droparea.js](https://github.com/apendua/knockoutjs-uploader/blob/master/scripts/uploader.js))
+(see [scripts/droparea.js](https://github.com/apendua/knockoutjs-uploader/blob/master/scripts/uploader.js))
 is intended to simplyfy the process of uploading a file. It adds two properties to the context of
 its descendants `uploadFile` and `listOfFiles`. The former is pretty strightforward, it takes a `File`
 object and it tries to upload it to the server. The latter is a `ko.observableArray` object that
