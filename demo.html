@@ -34,7 +34,7 @@
     </div>
 
     <div class="panel panel-default">
-      <div class="panel-heading">File uploader</div>
+      <div class="panel-heading">File uploader demo</div>
       <div data-bind="uploader: null">
         <div class="droparea" data-bind="droparea: { drop: uploadFiles }">
           Drag files here to start uploading
@@ -42,22 +42,35 @@
         <table class="table table-striped">
           <thead>
             <tr>
+              <th>Status</th>
               <th>File name</th>
               <th>File size</th>
               <th>Progress</th>
-              <th>Status</th>
             </tr>
           </thead>
           <tbody data-bind="foreach: listOfFiles">
             <tr>
-              <td data-bind="text: name"></td>
-              <td data-bind="text: size"></td>
-              <td data-bind="text: progress()"></td>
               <td>
                 <span class="label label-default" data-bind="text: status(), css: {
-                  'label-success': status() == 'success',
-                  'label-danger' : status() == 'error',
+                  'label-success' : status() == 'success',
+                  'label-danger'  : status() == 'error',
                 }"></span>
+              </td>
+              <td data-bind="text: name"></td>
+              <td data-bind="text: size"></td>
+              <td>
+                <div class="progress progress-striped" data-bind="css: {
+                  'active' : status() == 'uploading'
+                }">
+                  <div class="progress-bar"
+                  data-bind=
+                  "style: {
+                    width: progress() + '%'
+                  }, css: {
+                    'progress-bar-success' : status() == 'success',
+                    'progress-bar-danger'  : status() == 'error',
+                  }"></div>
+                </div>
               </td>
             </tr>
           </tbody>
