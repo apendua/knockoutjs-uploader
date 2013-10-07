@@ -7,6 +7,7 @@
 
   <script src="scripts/jquery-1.10.2.min.js"></script>
   <script src="scripts/knockout-3.0.0rc.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
   <script src="scripts/filepicker.js"></script>
   <script src="scripts/appViewModel.js"></script>
   <script src="scripts/uploader.js"></script>
@@ -33,13 +34,14 @@
       <h3 class="text-muted">KnockoutJS File Uploader</h3>
     </div>
 
-    <div class="panel panel-default">
-      <div class="panel-heading">File uploader demo</div>
-      <div data-bind="uploader: null">
+    <div data-bind="uploader: true">
+      <div class="panel panel-default">
+        <div class="panel-heading">Uploading Files Demo App</div>
         <div class="droparea" data-bind="droparea: { drop: uploadFiles }">
-          Drag files here to start uploading
+          Drag files here to start uploading.<br/>
+          You can drag multiple files at the same time.
         </div>
-        <table class="table table-hover">
+        <table class="table table-hover" data-bind="if: listOfFiles().length > 0">
           <thead>
             <tr>
               <th>Status</th>
@@ -70,26 +72,31 @@
                   'active' : status() == 'uploading'
                 }">
                   <div class="progress-bar"
-                  data-bind=
-                  "style: {
-                    width: progress() + '%'
-                  }, css: {
-                    'progress-bar-success' : status() == 'success',
-                    'progress-bar-danger'  : status() == 'error',
-                  }"></div>
-                </div>
+                    data-bind=
+                    "style: {
+                      width: progress() + '%'
+                    }, css: {
+                      'progress-bar-success' : status() == 'success',
+                      'progress-bar-danger'  : status() == 'error',
+                    }"></div>
+                </div> <!-- progress -->
               </td>
             </tr>
           </tbody>
         </table>
-      </div> <!-- uploader -->
-    </div> <!-- panel -->
+        <div class="panel-footer"></div>
+      </div> <!-- panel -->
+      <!-- ko if: listOfFiles().length == 0 -->
+      <div class="alert alert-warning">
+        No files present in the upload queue.
+      </div>
+      <!-- /ko -->
+    </div> <!-- uploader -->
 
     <div class="footer">
       <p>&copy; apendua 2013</p>
     </div>
 
-    <script src="scripts/bootstrap.min.js"></script>
   </div> <!-- container -->
 </body>
 </html>

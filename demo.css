@@ -1,6 +1,8 @@
 .droparea {
   padding: 30px;
   border: 2px dashed black;
+  color: #777;
+  border-color: #ddd;
   border-radius: 12px;
   text-align: center;
   margin: 16px;
