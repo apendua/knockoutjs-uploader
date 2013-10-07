@@ -18,9 +18,10 @@ ko.bindingHandlers.uploader = {
 
     // define file upload handler
     var uploadFiles = function (event) {
-        var dt = event.originalEvent.dataTransfer;
-        if (dt !== undefined && dt.files !== undefined) {
-          for (var i=0; i<dt.files.length; i++) {
+      var dt = event.originalEvent.dataTransfer;
+      if (dt !== undefined && dt.files !== undefined) {
+        for (var i=0; i<dt.files.length; i++) {
+          (function () {
             var fileViewModel = new FileViewModel(dt.files[i]);
             listOfFiles.push(fileViewModel);
             //-----------------------------------------------
@@ -32,8 +33,9 @@ ko.bindingHandlers.uploader = {
               fileViewModel.status('uploading');
               fileViewModel.progress(progress);
             });
-          }
+          })();
         }
+      }
     }
 
     // apply bindings to child nodes
