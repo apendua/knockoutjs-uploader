@@ -19,7 +19,7 @@ ko.bindingHandlers.droparea = {
       }).on('drop', function (event) {
         //----------------------------------
         if (currentValue.drop !== undefined)
-          currentValue.drop(event);
+          currentValue.drop(event.originalEvent);
         // restore style
         $(this).removeClass('dragover');
         event.preventDefault(); // I'm not sure if this is required

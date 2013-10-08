@@ -23,7 +23,7 @@ ko.bindingHandlers.uploader = {
 
     // upload handler
     var uploadFiles = function (event) {
-      var dt = event.originalEvent.dataTransfer;
+      var dt = event.dataTransfer;
       if (dt !== undefined && dt.files !== undefined) {
         for (var i=0; i<dt.files.length; i++) {
           (function () {
