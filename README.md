@@ -3,7 +3,7 @@ knockoutjs-uploader
 
 This very simple project aims at producing an upload file manager
 with a help of [KnockoutJS](http://knockoutjs.com/) framework and a minimal amount of code.
-At this moment the communication with server is done by a very usefull
+At this moment the communication with server is done by a very useful
 [filepicker](https://www.inkfilepicker.com/) library.
 
 knockout-bindings
@@ -18,7 +18,7 @@ corresponding callback in the following way
 ```
 The second one, named `uploader`
 (see [scripts/droparea.js](https://github.com/apendua/knockoutjs-uploader/blob/master/scripts/uploader.js))
-is intended to simplyfy the process of uploading a file. It adds two properties to the context of
+is intended to simplify the process of uploading a file. It adds two properties to the context of
 its descendants `uploadFile` and `listOfFiles`. The former is pretty strightforward, it takes a `File`
 object and it tries to upload it to the server. The latter is a `ko.observableArray` object that
 manages the uploading queue. Each element of this array is an object of the following form
@@ -28,7 +28,7 @@ manages the uploading queue. Each element of this array is an object of the foll
   size: 1024, // in bytes
   status: ko.observable('success'), // or one of [null, 'error', 'uploading']
   link: ko.observable('http://my.server.com/the-link-to-my-file'),
-  progress: ko.observalbe(100),
+  progress: ko.observable(100),
 }
 ```
 which you can use to monitor the uploading process of each separated file.
